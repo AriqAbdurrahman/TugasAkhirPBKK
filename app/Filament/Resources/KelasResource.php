@@ -33,13 +33,14 @@ class KelasResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('kelas')
+                TextColumn::make('kelas')->sortable()->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

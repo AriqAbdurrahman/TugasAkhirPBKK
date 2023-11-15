@@ -39,15 +39,16 @@ class MataKuliahResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_matkul'),
-                TextColumn::make('dosen.nama_dosen'),
-                TextColumn::make('kelas.kelas')
+                TextColumn::make('nama_matkul')->sortable()->searchable(),
+                TextColumn::make('dosen.nama_dosen')->sortable()->searchable(),
+                TextColumn::make('kelas.kelas')->sortable()->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

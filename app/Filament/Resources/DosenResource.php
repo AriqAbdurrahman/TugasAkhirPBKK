@@ -39,14 +39,15 @@ class DosenResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_dosen'),
-                TextColumn::make('jenis_kelamin'),
+                TextColumn::make('nama_dosen')->sortable()->searchable(),
+                TextColumn::make('jenis_kelamin')->sortable()->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
